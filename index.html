@@ -5,11 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticketmater | Waiting List Feature</title>
+    <title>Ticketmaster | Waiting List Feature</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <main>
+        <section id="waiting-list-form-section">
+            <div>
+                <button>⟨</button>
+                <h2>Join Waiting List</h2>
+            </div>
+            <div>
+                <img src="" alt="list icon">
+                <h3>How should we contact you?</h3>
+            </div>
+            <form>
+                <div>
+                    <div>
+                        <input type="checkbox" name="phone-checkbox" id="phone-checkbox">
+                        <label for="phone">Mobile Number</label>
+                        <p>Please include country code</p>
+                        <input type="number" name="mobile-number" id="mobile-number">
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" name="email-checkbox" id="email-checkbox" checked>
+                        <label for="phone">Email</label>
+                        <input type="email" name="mobile-number" id="mobile-number" value="example@example.com">
+                    </div>
+                </div>
+                <button type="submit">Confirm</button>
+            </form>
+        </section>
+    </main>
 
     <script src="index.js"></script>
 </body>
