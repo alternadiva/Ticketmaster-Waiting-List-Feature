@@ -23,6 +23,8 @@ function compareData(waitingList, userMobile, userEmail) {
 
 // Fetch fake promise
 
+// Confirm subscription
+
 let waitingListValidation = fetch("./test/waiting-list.json")
   .then((response) => {
     if (!response.ok) {
@@ -44,3 +46,17 @@ let waitingListValidation = fetch("./test/waiting-list.json")
     });
   })
   .catch(console.error);
+
+// Render DOM for successful subscription
+const formContainer = document.getElementById("form-content");
+
+function subscribedDOM(inputMobile, inputEmail) {
+  formContainer.innerHTML = `
+  <h3>You're on the list!</h3>
+  <p>${inputMobile}</p>
+  <p>${inputEmail}</p>
+  <p>We'll let you know if you are successful.</p>
+  <p>Tickets will be sold on a first come first served basis, and are not guaranteed.</p>
+  <a href="https://www.ticketmaster.co.uk"><button type="submit">View other dates</button></a>
+  `;
+}
