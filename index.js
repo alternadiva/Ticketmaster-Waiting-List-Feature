@@ -40,10 +40,20 @@ let waitingListValidation = fetch("./test/waiting-list.json")
       const formData = new FormData(form);
       const userInputData = Object.fromEntries(formData);
 
+      // New user object with mobile and email values
+
+      let userObject = Object.keys(userInputData)
+        .filter((key) => key === "mobile" || key === "email")
+        .reduce((current, key) => {
+          return Object.assign(current, { [key]: userInputData[key] });
+        }, {});
+
       let userList = data.users;
 
       if (compareData(userList, userInputData.mobile, userInputData.email)) {
+        userList.push(userObject); //instead of POST method
         subscribedDOM(userInputData.mobile, userInputData.email);
+        return "added to the list";
       }
     });
   })
