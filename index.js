@@ -72,3 +72,13 @@ function subscribedDOM(inputMobile, inputEmail) {
   <a href="https://www.ticketmaster.co.uk"><button type="submit">View other dates</button></a>
   `;
 }
+
+// Render DOM for unsuccessful subscription
+function piorSubscribedDOM() {
+  document.getElementById("form-icon").src = "";
+  formContainer.innerHTML = `
+    <h3>You're already signed up!</h3>
+    <p>We'll contact you if more tickets become available</p>
+    <a href="https://www.ticketmaster.co.uk"><button type="submit">View other dates</button></a>
+    `;
+}
