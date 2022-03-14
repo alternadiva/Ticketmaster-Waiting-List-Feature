@@ -20,19 +20,20 @@
                 <img src="" alt="list icon">
                 <h3>How should we contact you?</h3>
             </div>
-            <form>
+            <form id="waiting-list-form">
                 <div>
                     <div>
                         <input type="checkbox" name="phone-checkbox" id="phone-checkbox">
                         <label for="phone">Mobile Number</label>
                         <p>Please include country code</p>
-                        <input type="number" name="mobile-number" id="mobile-number">
+                        <input type="tel" name="mobile" id="mobile" pattern="^[+]{1}[1-9]{1}[0-9]{5,14}$"
+                            value="+449876543211">
                     </div>
                     <hr>
                     <div>
                         <input type="checkbox" name="email-checkbox" id="email-checkbox" checked>
-                        <label for="phone">Email</label>
-                        <input type="email" name="mobile-number" id="mobile-number" value="example@example.com">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" value="example@example.com">
                     </div>
                 </div>
                 <button type="submit">Confirm</button>
