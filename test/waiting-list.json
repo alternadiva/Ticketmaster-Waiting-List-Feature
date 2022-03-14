@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "mobile": "+440123456789",
+      "email": "example@example.com"
+    },
+    {
+      "mobile": "+449876543211",
+      "email": "test@test.com"
+    },
+    {
+      "mobile": "",
+      "email": "test@example.com"
+    },
+    {
+      "mobile": "+446543678945",
+      "email": ""
+    }
+  ]
+}

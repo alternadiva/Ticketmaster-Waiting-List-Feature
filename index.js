@@ -2,31 +2,9 @@
 
 const form = document.getElementById("waiting-list-form");
 
-// Add waiting list array of objects for comparison
-
-let waitingList = [
-  {
-    mobile: "+440123456789",
-    email: "example@example.com",
-  },
-  {
-    mobile: "+449876543211",
-    email: "test@test.com",
-  },
-];
-
 // Compare form data with waiting list data
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const formData = new FormData(form);
-  const userData = Object.fromEntries(formData);
-
-  compareData(userData.mobile, userData.email);
-});
-
-function compareData(userMobile, userEmail) {
+function compareData(waitingList, userMobile, userEmail) {
   let onTheList = false;
 
   for (let i = 0; i < waitingList.length; i++) {
@@ -40,3 +18,30 @@ function compareData(userMobile, userEmail) {
   }
   return onTheList;
 }
+
+// Stub API
+
+// Fetch fake promise
+
+fetch("./test/waiting-list.json")
+  .then((response) => {
+    if (!response.ok) {
+      const error = new Error(response.status);
+      throw error;
+    }
+    return response.json();
+  })
+  .then((data) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const userInputData = Object.fromEntries(formData);
+
+      let userList = data.users;
+
+      compareData(userList, userInputData.mobile, userInputData.email);
+    });
+    console.log(data);
+  })
+  .catch(console.error);
