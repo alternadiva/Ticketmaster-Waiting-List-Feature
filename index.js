@@ -26,7 +26,6 @@ function compareData(waitingList, userMobile, userEmail) {
       onTheList = false;
     }
   }
-  console.log(onTheList);
   return onTheList;
 }
 
@@ -79,20 +78,20 @@ const formContainer = document.getElementById("form-content");
 function subscribedDOM(inputMobile, inputEmail) {
   formContainer.innerHTML = `
   <h3>You're on the list!</h3>
-  <p>${inputMobile}</p>
-  <p>${inputEmail}</p>
+  <p id="result">${inputMobile}</p>
+  <p id="result">${inputEmail}</p>
   <p>We'll let you know if you are successful.</p>
   <p>Tickets will be sold on a first come first served basis, and are not guaranteed.</p>
-  <a href="https://www.ticketmaster.co.uk"><button type="submit">View other dates</button></a>
+  <a href="https://www.ticketmaster.co.uk"><button type="submit" class="button">View other dates</button></a>
   `;
 }
 
 // Render DOM for unsuccessful subscription
 function piorSubscribedDOM() {
-  document.getElementById("form-icon").src = "";
+  document.getElementById("form-icon").src = "./assets/warning.png";
   formContainer.innerHTML = `
     <h3>You're already signed up!</h3>
     <p>We'll contact you if more tickets become available</p>
-    <a href="https://www.ticketmaster.co.uk"><button type="submit">View other dates</button></a>
+    <a href="https://www.ticketmaster.co.uk"><button type="submit" class="button">View other dates</button></a>
     `;
 }

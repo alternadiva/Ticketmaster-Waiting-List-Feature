@@ -7,37 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticketmaster | Waiting List Feature</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <main>
+    <main id="main-container">
         <section id="waiting-list-form-section">
-            <div>
-                <div>
-                    <button>⟨</button>
+            <div id="hearder">
+                <div id="waiting-list-header">
+                    <button id="return-button">⟨</button>
                     <h2>Join Waiting List</h2>
                 </div>
-                <hr>
-                <img src="" alt="list icon" id="form-icon">
+                <img src="./assets/waiting-list.png" alt="list icon" id="form-icon">
             </div>
             <div id="form-content">
                 <h3>How should we contact you?</h3>
                 <form id="waiting-list-form">
-                    <div>
-                        <div>
+                    <div id="inputs-container">
+                        <div class="container">
                             <input type="checkbox" name="phone-checkbox" id="phone-checkbox">
-                            <label for="phone">Mobile Number</label>
-                            <p>Please include country code</p>
-                            <input type="tel" name="mobile" id="mobile" pattern="^[+]{1}[1-9]{1}[0-9]{5,14}$">
+                            <div class="cont-inputs">
+                                <label for="phone">Mobile Number</label>
+                                <p id="note">Please include country code</p>
+                                <input type="tel" name="mobile" id="mobile" pattern="^[+]{1}[1-9]{1}[0-9]{5,14}$">
+                            </div>
                         </div>
                         <hr>
-                        <div>
+                        <div class="container">
                             <input type="checkbox" name="email-checkbox" id="email-checkbox" checked>
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" value="example@example.com">
+                            <div class="cont-inputs" id="email-inputs">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" value="example@example.com">
+                            </div>
                         </div>
                     </div>
-                    <button type="submit">Confirm</button>
+                    <button type="submit" class="button">Confirm</button>
                 </form>
             </div>
         </section>
