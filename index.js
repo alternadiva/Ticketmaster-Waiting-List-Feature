@@ -23,7 +23,7 @@ function compareData(waitingList, userMobile, userEmail) {
 
 // Fetch fake promise
 
-let onTheWaitingList = fetch("./test/waiting-list.json")
+let waitingListValidation = fetch("./test/waiting-list.json")
   .then((response) => {
     if (!response.ok) {
       const error = new Error(response.status);
@@ -39,9 +39,7 @@ let onTheWaitingList = fetch("./test/waiting-list.json")
       const userInputData = Object.fromEntries(formData);
 
       let userList = data.users;
-      console.log(
-        compareData(userList, userInputData.mobile, userInputData.email)
-      );
+
       return compareData(userList, userInputData.mobile, userInputData.email);
     });
   })
