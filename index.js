@@ -9,13 +9,24 @@ function compareData(waitingList, userMobile, userEmail) {
 
   for (let i = 0; i < waitingList.length; i++) {
     if (
-      waitingList[i].mobile === userMobile ||
-      waitingList[i].email === userEmail
+      waitingList[i].mobile == userMobile &&
+      waitingList[i].email == userEmail
     ) {
       onTheList = true;
       break;
+    } else if (
+      waitingList[i].mobile.length === 0 &&
+      waitingList[i].email === userEmail
+    ) {
+      onTheList = false;
+    } else if (
+      waitingList[i].mobile === userMobile &&
+      waitingList[i].email.length === 0
+    ) {
+      onTheList = false;
     }
   }
+  console.log(onTheList);
   return onTheList;
 }
 
@@ -50,10 +61,13 @@ let waitingListValidation = fetch("./test/waiting-list.json")
 
       let userList = data.users;
 
-      if (compareData(userList, userInputData.mobile, userInputData.email)) {
+      if (!compareData(userList, userInputData.mobile, userInputData.email)) {
         userList.push(userObject); //instead of POST method
         subscribedDOM(userInputData.mobile, userInputData.email);
         return "added to the list";
+      } else {
+        piorSubscribedDOM();
+        throw "already on the list";
       }
     });
   })
@@ -71,4 +85,14 @@ function subscribedDOM(inputMobile, inputEmail) {
   <p>Tickets will be sold on a first come first served basis, and are not guaranteed.</p>
   <a href="https://www.ticketmaster.co.uk"><button type="submit">View other dates</button></a>
   `;
+}
+
+// Render DOM for unsuccessful subscription
+function piorSubscribedDOM() {
+  document.getElementById("form-icon").src = "";
+  formContainer.innerHTML = `
+    <h3>You're already signed up!</h3>
+    <p>We'll contact you if more tickets become available</p>
+    <a href="https://www.ticketmaster.co.uk"><button type="submit">View other dates</button></a>
+    `;
 }
