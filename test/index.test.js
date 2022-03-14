@@ -25,23 +25,23 @@ test("Test compareData function", () => {
     equal(actual, expected);
   });
 
-  test("If mobile numbers are not the same, but emails are the same, function should still return true", () => {
+  test("If mobile numbers are different, but emails are the same, function should return false", () => {
     const actual = compareData(
       testWaitingListObject,
       "+440123456115",
       "example@example.com"
     );
-    const expected = true;
+    const expected = false;
     equal(actual, expected);
   });
 
-  test("If mobile numbers are the same, but emails are not the same, function should still return true", () => {
+  test("If mobile numbers are the same, but emails are different, function should  return false", () => {
     const actual = compareData(
       testWaitingListObject,
       "+440123456789",
       "example@false.com"
     );
-    const expected = true;
+    const expected = false;
     equal(actual, expected);
   });
 
