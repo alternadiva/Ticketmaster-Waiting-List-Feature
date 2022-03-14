@@ -4,6 +4,8 @@
 
 Solution for the take-home challenge presented by Ticketmaster. This is my attempt at completing one of the user stories of the Waiting List feaure.⏳
 
+🔗 **Deployed to [GitHub Pages](https://alternadiva.github.io/Ticketmaster-Waiting-List-Feature/)**
+
 --- 
 
 ### Vision 
