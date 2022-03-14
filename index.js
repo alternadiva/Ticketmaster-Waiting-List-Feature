@@ -42,7 +42,9 @@ let waitingListValidation = fetch("./test/waiting-list.json")
 
       let userList = data.users;
 
-      return compareData(userList, userInputData.mobile, userInputData.email);
+      if (compareData(userList, userInputData.mobile, userInputData.email)) {
+        subscribedDOM(userInputData.mobile, userInputData.email);
+      }
     });
   })
   .catch(console.error);
