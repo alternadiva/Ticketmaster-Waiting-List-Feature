@@ -40,3 +40,5 @@ function compareData(userMobile, userEmail) {
   }
   return onTheList;
 }
+
+// Stub API
