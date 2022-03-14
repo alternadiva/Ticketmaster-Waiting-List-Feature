@@ -23,16 +23,20 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(form);
   const userData = Object.fromEntries(formData);
 
+  compareData(userData.mobile, userData.email);
+});
+
+function compareData(userMobile, userEmail) {
   let onTheList = false;
 
   for (let i = 0; i < waitingList.length; i++) {
     if (
-      waitingList[i].mobile === userData.mobile ||
-      waitingList[i].email === userData.email
+      waitingList[i].mobile === userMobile ||
+      waitingList[i].email === userEmail
     ) {
       onTheList = true;
       break;
     }
   }
   return onTheList;
-});
+}
