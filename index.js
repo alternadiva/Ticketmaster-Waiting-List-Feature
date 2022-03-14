@@ -42,3 +42,16 @@ function compareData(userMobile, userEmail) {
 }
 
 // Stub API
+
+// Fetch fake promise
+
+fetch("./test/waiting-list.json")
+  .then((response) => {
+    if (!response.ok) {
+      const error = new Error(response.status);
+      throw error;
+    }
+    return response.json();
+  })
+  .then((data) => console.log(data))
+  .catch(console.error);
